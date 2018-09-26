@@ -1,0 +1,21 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: percona-jiva-backend
+spec:
+  selector:
+    matchLabels:
+      app: percona-jiva-backend
+  template:
+    metadata:
+      labels:
+        app: percona-jiva-backend
+    spec:
+      containers:
+      - name: percona-jiva-backend-container
+        ports:
+        - containerPort: 3000
+        args:
+        image: bhaskarjb/cockdb:01
+        imagePullPolicy: Always
+---
